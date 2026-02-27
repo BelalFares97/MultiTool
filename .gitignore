@@ -1,0 +1,85 @@
+# ============================
+# Python / Backend
+# ============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+*.spec
+*.log
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables — NEVER commit secrets
+.env
+.env.*
+!.env.example
+
+# Uploaded audio files (runtime artifacts)
+backend/uploads/
+
+# Large data / model files
+backend/dataset/
+backend/models/
+*.pkl
+*.joblib
+*.h5
+*.bin
+*.onnx
+*.pt
+*.pth
+
+# Helper/scratch text files
+backend/aai_help.txt
+backend/aai_help_utf8.txt
+backend/sig.txt
+backend/sig_inference.txt
+backend/sig_vad.txt
+
+# ============================
+# Node / Frontend
+# ============================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+
+# Build artifacts
+*.local
+
+# Package manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ============================
+# OS & Editor
+# ============================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# ============================
+# Misc
+# ============================
+*.swp
+*.swo
+*~
+*.bak

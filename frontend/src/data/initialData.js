@@ -1,0 +1,56 @@
+export const INITIAL_CASES = [
+    {
+        id: 'CAS-1001',
+        client: 'Saudi Construction Ltd',
+        industry: 'Contracting',
+        risk: 'High',
+        ews: 12,
+        updated: '2024-01-18',
+        status: 'New',
+        rm: 'Sarah Ahmed',
+        files: [],
+        projectDetails: {
+            projectName: 'NEOM Line Foundation Project',
+            projectOwner: 'NEOM Authority',
+            mainContractor: 'Saudi Construction Ltd',
+            subContractor: 'Multiple Local Entities',
+            projectDescription: 'Infrastructure and foundation laying for the Line sector.',
+            projectLocation: 'NEOM, Tabuk Region',
+            value: '250,000,000 SAR',
+            scopeOfWork: 'Excavation, piling, and reinforced concrete works.',
+            duration: '36 Months',
+            startingDate: '2023-10-01',
+            completionDate: '2026-09-30',
+            paymentTerms: 'Milestone-based, 10% Advance, 90-day credit cycle.'
+        }
+    },
+    {
+        id: 'CAS-1002',
+        client: 'Oceanic Logistics',
+        industry: 'Shipping',
+        risk: 'Medium',
+        ews: 5,
+        updated: '2024-01-20',
+        status: 'Under Review',
+        rm: 'John Smith',
+        files: [],
+        projectDetails: {
+            projectName: 'Red Sea Supply Chain Hub',
+            projectOwner: 'Red Sea Global',
+            mainContractor: 'Maritime Builders Group',
+            subContractor: 'Oceanic Logistics',
+            projectDescription: 'Construction of a logistics hub supporting sustainable tourism.',
+            projectLocation: 'Umluj, Saudi Arabia',
+            value: '120,000,000 SAR',
+            scopeOfWork: 'Logistics management and warehouse infrastructure.',
+            duration: '24 Months',
+            startingDate: '2024-02-15',
+            completionDate: '2026-02-14',
+            paymentTerms: 'Quarterly progress payments.'
+        }
+    },
+    { id: 'CAS-1003', client: 'Desert Energy Corp', industry: 'Energy', risk: 'Low', ews: 0, updated: '2024-01-15', status: 'Actioned', rm: 'Sarah Ahmed', files: [] },
+    { id: 'CAS-1004', client: 'Al-Nahda Trading', industry: 'Retail', risk: 'Medium', ews: 8, updated: '2024-01-21', status: 'New', rm: 'Mohammed Ali', files: [] },
+    { id: 'CAS-1005', client: 'Global Pharma', industry: 'Healthcare', risk: 'High', ews: 15, updated: '2024-01-19', status: 'Under Review', rm: 'Sarah Ahmed', files: [] },
+    { id: 'CAS-1006', client: 'Tech Oasis Solutions', industry: 'IT Services', risk: 'Low', ews: 2, updated: '2024-01-10', status: 'Actioned', rm: 'John Smith', files: [] },
+];
