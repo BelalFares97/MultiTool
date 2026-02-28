@@ -24,6 +24,9 @@ import { useChat } from './hooks/useChat';
 // Utilities
 import { getTranslation } from './i18n/translations';
 import { generateMujazPDF } from './utils/generateMujazPDF';
+import { generateRiskReport } from './utils/generateRiskReport';
+import { RISK_DEFAULT_FORM_DATA } from './constants/riskDefaults';
+import { FileDown } from 'lucide-react';
 
 function App() {
   // Hooks
@@ -52,6 +55,12 @@ function App() {
   // Mujaz report state (lifted so Topbar can trigger PDF export)
   const [mujazReport, setMujazReport] = useState(null);
   const [mujazMeta, setMujazMeta] = useState(null);
+  const [riskTriggerCount, setRiskTriggerCount] = useState(0);
+  const [isRiskSimulating, setIsRiskSimulating] = useState(false);
+  const [riskFormData, setRiskFormData] = useState(RISK_DEFAULT_FORM_DATA);
+  const [riskPredictionResult, setRiskPredictionResult] = useState(null);
+  const [riskAiAnalysis, setRiskAiAnalysis] = useState(null);
+  const [isRiskAnalyzingAI, setIsRiskAnalyzingAI] = useState(false);
 
   // Page Info
   const pageInfo = {
@@ -109,9 +118,20 @@ function App() {
           language={settings.language}
           setIsNewCaseOpen={setIsNewCaseOpen}
           setIsNewFinanceRequestOpen={setIsNewFinanceRequestOpen}
-          setIsSettingsOpen={setIsSettingsOpen}
           onGeneratePDF={() => generateMujazPDF({ analysisResult: mujazReport, metadata: mujazMeta })}
           hasMujazReport={!!mujazReport}
+          onRunRiskSimulation={() => setRiskTriggerCount(prev => prev + 1)}
+          isRiskSimulating={isRiskSimulating}
+          setIsSettingsOpen={setIsSettingsOpen}
+          onGenerateRiskReport={() => generateRiskReport({
+            formData: riskFormData,
+            predictionResult: riskPredictionResult,
+            aiAnalysis: riskAiAnalysis,
+            clientName: settings.clientName,
+            clientLogo: settings.clientLogo,
+            t
+          })}
+          hasRiskReport={!!riskPredictionResult && !isRiskAnalyzingAI && riskAiAnalysis !== null}
         />
 
         <div className="main-content">
@@ -155,6 +175,18 @@ function App() {
             <RiskIntelligencePage
               selectedCase={selectedCase}
               language={settings.language}
+              riskTriggerCount={riskTriggerCount}
+              setIsRiskSimulating={setIsRiskSimulating}
+              clientName={settings.clientName}
+              clientLogo={settings.clientLogo}
+              formData={riskFormData}
+              setFormData={setRiskFormData}
+              predictionResult={riskPredictionResult}
+              setPredictionResult={setRiskPredictionResult}
+              aiAnalysis={riskAiAnalysis}
+              setAiAnalysis={setRiskAiAnalysis}
+              isAnalyzingAI={isRiskAnalyzingAI}
+              setIsAnalyzingAI={setIsRiskAnalyzingAI}
             />
           )}
 

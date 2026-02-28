@@ -51,6 +51,17 @@ def predict():
         return jsonify({'error': str(e)}), 500
 
 
+@app.route('/api/miqyas/deep-analyze', methods=['POST'])
+def deep_analyze():
+    data = request.json
+    if not data:
+        return jsonify({'error': 'No data provided'}), 400
+    try:
+        return jsonify(miqyas_service.deep_analyze(data))
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 # ── Tamkeen (RMs Assistant) ────────────────────────────────
 @app.route('/api/tamkeen/analyze', methods=['POST'])
 def tamkeen_analyze():

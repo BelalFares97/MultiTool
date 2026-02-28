@@ -2,3 +2,9 @@ flask
 flask-cors
 python-dotenv
 assemblyai
+pandas
+openpyxl
+scikit-learn
+joblib
+numpy
+openai
