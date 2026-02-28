@@ -10,7 +10,11 @@ const Topbar = ({
     setIsNewFinanceRequestOpen,
     setIsSettingsOpen,
     onGeneratePDF,
+    onGenerateRiskReport,
     hasMujazReport,
+    hasRiskReport,
+    onRunRiskSimulation,
+    isRiskSimulating
 }) => {
     const t = getTranslation(language);
 
@@ -47,6 +51,29 @@ const Topbar = ({
                         <FileDown size={16} />
                         {t('generate_pdf_report')}
                     </button>
+                )}
+                {activePage === 'Miqyas Credit' && (
+                    <div style={{ display: 'flex', gap: '0.75rem', marginInlineEnd: '0.75rem' }}>
+                        <button
+                            className={`btn-new-case ${isRiskSimulating ? 'loading' : ''}`}
+                            onClick={onRunRiskSimulation}
+                            disabled={isRiskSimulating}
+                            style={{ minWidth: '220px' }}
+                        >
+                            {isRiskSimulating ? t('ai_model_processing') : t('run_risk_engine')}
+                        </button>
+
+                        {hasRiskReport && (
+                            <button
+                                className="btn-outline"
+                                onClick={onGenerateRiskReport}
+                                style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+                            >
+                                <FileDown size={18} />
+                                {t('generate_risk_report')}
+                            </button>
+                        )}
+                    </div>
                 )}
                 <button className="icon-btn" onClick={() => setIsSettingsOpen(true)}>
                     <Settings size={22} />
